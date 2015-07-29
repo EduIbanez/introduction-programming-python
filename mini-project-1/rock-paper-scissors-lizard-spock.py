@@ -24,7 +24,7 @@ def name_to_number(name):
     elif name == "scissors":
         return 4
     else:
-        print (name + " does not match any of the "
+        print(name + " does not match any of the "
             "five correct input strings")
         
 def number_to_name(number):
@@ -39,14 +39,14 @@ def number_to_name(number):
     elif number == 4:
         return "scissors"
     else:
-        print str(number) + " is not in the correct range"
+        print(str(number) + " is not in the correct range")
         
 def rpsls(player_choice): 
     # print a blank line to separate consecutive games
-    print ""
+    print("")
     
     # print out the message for the player's choice
-    print "Player chooses " + player_choice
+    print("Player chooses " + player_choice)
     
     # convert the player's choice to player_number using the function name_to_number()
     player_number = name_to_number(player_choice)
@@ -58,18 +58,18 @@ def rpsls(player_choice):
     comp_choice = number_to_name(comp_number)
     
     # print out the message for computer's choice
-    print "Computer chooses " + comp_choice
+    print("Computer chooses " + comp_choice)
     
     # compute difference of comp_number and player_number modulo five
     difference = (player_number - comp_number) % 5
     
     # determine winner
     if difference == 0:
-        print "Player and computer tie!"
+        print("Player and computer tie!")
     elif difference <= 2:
-        print "Player wins!"
+        print("Player wins!")
     else:
-        print "Computer wins!"
+        print("Computer wins!")
         
 # test the code
 rpsls("rock")
