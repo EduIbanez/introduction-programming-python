@@ -64,3 +64,6 @@ frame.add_input("Enter a guess", input_guess, 100)
 
 # call new_game 
 new_game()
+
+# start handlers for created frame
+frame.start()
