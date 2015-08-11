@@ -17,7 +17,6 @@ def format(t):
     if int(seconds) < 10:
         seconds = str(0) + seconds
     return minutes + ":" + seconds + "." + tenths_seconds
-
     
 # define event handlers for buttons; "Start", "Stop", "Reset"
 def button_start():
