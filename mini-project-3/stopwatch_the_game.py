@@ -21,13 +21,14 @@ def format(t):
 # define event handlers for buttons; "Start", "Stop", "Reset"
 def button_start():
     global stopped
-    timer.start()
-    stopped = False
+    if stopped == True:
+        timer.start()
+        stopped = False
 
 def button_stop():
     global stopped, times_stopped, times_succeed
-    timer.stop()
     if stopped == False:
+        timer.stop()
         stopped = True
         times_stopped += 1
         if (counter % 10) == 0:
