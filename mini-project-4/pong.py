@@ -25,7 +25,7 @@ paddle2_vel = 0
 # initialize ball_pos and ball_vel for new bal in middle of table
 # if direction is RIGHT, the ball's velocity is upper right, else upper left
 def spawn_ball(direction):
-    global ball_pos, ball_vel # these are vectors stored as lists
+    global ball_pos, ball_vel  # these are vectors stored as lists
     ball_pos = [WIDTH / 2, HEIGHT / 2]
     ball_vel = [random.randrange(120, 240) / 60, -random.randrange(60, 180) / 60]
     if direction == LEFT:
