@@ -11,12 +11,12 @@ def new_game():
     global deck_cards, exposed, state, turns
     deck_cards = list(range(0, 8)) + list(range(0, 8))
     random.shuffle(deck_cards)
-    exposed = []
     state = 0
     turns = 0
-    label.set_text("Turns = " + str(turns))
+    exposed = []
     for number in range(0, 16):
         exposed.append(False)
+    label.set_text("Turns = " + str(turns))
 
 # define event handlers
 def mouseclick(pos):
@@ -42,14 +42,15 @@ def mouseclick(pos):
             first_choice = position
             state = 1
 
-# cards are logically 70x135 pixels in size    
+# cards are logically 70x135 pixels in size
 def draw(canvas):
     index = 0
     location_card = 0
     for card in deck_cards:
         if exposed[index] == False:
             canvas.draw_polygon([(location_card, 0), (location_card + WIDTH_CARD, 0),
-                                 (location_card + WIDTH_CARD, HEIGHT_CARD), (location_card, HEIGHT_CARD)], 1, "White", "Steel Blue")
+                                (location_card + WIDTH_CARD, HEIGHT_CARD), (location_card, HEIGHT_CARD)],
+                                1, "White", "Steel Blue")
         else:
             canvas.draw_text(str(card), (location_card + 14, 115), 60, "White")
         index += 1
