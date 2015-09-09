@@ -14,7 +14,7 @@ def new_game():
     state = 0
     turns = 0
     exposed = []
-    for number in range(0, 16):
+    for number in range(16):
         exposed.append(False)
     label.set_text("Turns = " + str(turns))
 
