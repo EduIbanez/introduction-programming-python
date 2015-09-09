@@ -17,8 +17,8 @@ def new_game():
     state = 0
     turns = 0
     exposed = [[], [], [], []]
-    for index in range(0, 4):
-        for number in range(0, 9):
+    for index in range(4):
+        for number in range(9):
             exposed[index].append(False)
     label.set_text("Turns = " + str(turns))
 

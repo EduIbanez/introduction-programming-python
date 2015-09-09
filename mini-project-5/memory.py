@@ -9,7 +9,7 @@ HEIGHT_CARD = 135
 # helper function to initialize globals
 def new_game():
     global deck_cards, exposed, state, turns
-    deck_cards = list(range(0, 8)) + list(range(0, 8))
+    deck_cards = list(range(8)) + list(range(8))
     random.shuffle(deck_cards)
     state = 0
     turns = 0
@@ -46,15 +46,13 @@ def mouseclick(pos):
 def draw(canvas):
     index = 0
     location_card = 0
-    for card in deck_cards:
+    for index in range(len(deck_cards)):
         if exposed[index] == False:
-            canvas.draw_polygon([(location_card, 0), (location_card + WIDTH_CARD, 0),
-                                (location_card + WIDTH_CARD, HEIGHT_CARD), (location_card, HEIGHT_CARD)],
+            canvas.draw_polygon([(index * WIDTH_CARD, 0), ((index + 1) * WIDTH_CARD, 0),
+                                ((index + 1) * WIDTH_CARD, HEIGHT_CARD), (index * WIDTH_CARD, HEIGHT_CARD)],
                                 1, "White", "Steel Blue")
         else:
-            canvas.draw_text(str(card), (location_card + 14, 115), 60, "White")
-        index += 1
-        location_card += WIDTH_CARD
+            canvas.draw_text(str(deck_cards[index]), ((index * WIDTH_CARD) + 14, 115), 60, "White")
 
 # create frame and add a button and labels
 frame = simplegui.create_frame("Memory", WIDTH_CARD * 16, HEIGHT_CARD)
