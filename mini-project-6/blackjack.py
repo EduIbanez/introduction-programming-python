@@ -6,11 +6,11 @@ import random
 # load card sprite - 936x384
 CARD_SIZE = (72, 96)
 CARD_CENTER = (36, 48)
-card_images = simplegui.load_image("http://storage.googleapis.com/codeskulptor-assets/cards_jfitz.png")
+card_images = simplegui.load_image("https://raw.githubusercontent.com/EduIbanez/introduction-programming-python/master/mini-project-6/images/cards.png")
 
 CARD_BACK_SIZE = (72, 96)
 CARD_BACK_CENTER = (36, 48)
-card_back = simplegui.load_image("http://storage.googleapis.com/codeskulptor-assets/card_jfitz_back.png")    
+card_back = simplegui.load_image("https://raw.githubusercontent.com/EduIbanez/introduction-programming-python/master/mini-project-6/images/cards_back.png")
 
 # initialize some useful global variables
 in_play = False
@@ -31,7 +31,7 @@ class Card:
         else:
             self.suit = None
             self.rank = None
-            print "Invalid card: ", suit, rank
+            print("Invalid card: ", suit, rank)
 
     def __str__(self):
         return self.suit + self.rank
@@ -101,7 +101,7 @@ class Deck:
         if len(self.list_cards) > 0:
             card = self.list_cards.pop(0)
         else:
-            print "Empty deck"
+            print("Empty deck")
         return card
     
     def __str__(self):
@@ -148,9 +148,7 @@ def hit():
 def stand():
     global outcome, message, score, in_play
     # if hand is in play, repeatedly hit dealer until his hand has value 17 or more
-    if player.get_value() > 21:
-        message = "You went bust and lose"
-    elif in_play:
+    if in_play:
         while dealer.get_value() < 17:
             dealer.add_card(deck.deal_card())
         if dealer.get_value() > 21:
@@ -185,9 +183,9 @@ frame = simplegui.create_frame("Blackjack", 600, 600)
 frame.set_canvas_background("Green")
 
 #create buttons and canvas callback
-frame.add_button("Deal", deal, 200)
-frame.add_button("Hit",  hit, 200)
-frame.add_button("Stand", stand, 200)
+frame.add_button("Deal", deal, 50)
+frame.add_button("Hit",  hit, 50)
+frame.add_button("Stand", stand, 50)
 frame.set_draw_handler(draw)
 
 # get things rolling
