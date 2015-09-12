@@ -85,7 +85,7 @@ class Hand:
         for index in range(len(self.list_cards)):
             self.list_cards[index].draw(canvas, [pos[0] + (CARD_SIZE[0] + 30) * index, pos[1]])
 
-# define deck class 
+# define deck class
 class Deck:
     def __init__(self):
         self.list_cards = []
@@ -137,11 +137,11 @@ def hit():
     # if the hand is in play, hit the player
     if in_play:
         if player.get_value() <= 21:
-            player.add_card(deck.deal_card())   
-        # if busted, assign a message to outcome
+            player.add_card(deck.deal_card())
+        # if busted, assign messages
         if player.get_value() > 21:
             outcome = "New deal?"
-            message = "You went bust and lose"
+            message = "You went bust. You lose"
             in_play = False
             score -= 1
 
@@ -152,7 +152,7 @@ def stand():
         while dealer.get_value() < 17:
             dealer.add_card(deck.deal_card())
         if dealer.get_value() > 21:
-            message = "Dealer went bust and you win"
+            message = "Dealer went bust. You win"
             score += 1
         else:
             if player.get_value() <= dealer.get_value():
@@ -166,20 +166,20 @@ def stand():
 
 # draw handler
 def draw(canvas):
-    canvas.draw_text("Blackjack", (90, 100), 45, "Gold")
-    canvas.draw_text("Score: " + str(score), (390, 100), 30, "Black")
-    canvas.draw_text("Dealer", (60, 175), 30, "Black")
-    canvas.draw_text(message, (220, 175), 30, "Black")
-    dealer.draw(canvas, [60, 200])
+    canvas.draw_text("Blackjack", (100, 100), 40, "Gold")
+    canvas.draw_text("Score: " + str(score), (420, 100), 30, "Black")
+    canvas.draw_text("Dealer", (60, 175), 25, "Black")
+    canvas.draw_text(message, (220, 175), 25, "Black")
+    dealer.draw(canvas, (60, 200))
     if in_play:
         canvas.draw_image(card_back, CARD_BACK_CENTER, CARD_BACK_SIZE,
                           (CARD_BACK_CENTER[0] + 60, CARD_BACK_CENTER[1] + 200), CARD_BACK_SIZE)
-    canvas.draw_text("Player", (60, 375), 30, "Black")
-    canvas.draw_text(outcome, (220, 375), 30, "Black")
-    player.draw(canvas, [60, 400])
+    canvas.draw_text("Player", (60, 375), 25, "Black")
+    canvas.draw_text(outcome, (220, 375), 25, "Black")
+    player.draw(canvas, (60, 400))
 
 # initialization frame
-frame = simplegui.create_frame("Blackjack", 600, 600)
+frame = simplegui.create_frame("Blackjack", 702, 600)
 frame.set_canvas_background("Green")
 
 #create buttons and canvas callback
