@@ -113,7 +113,7 @@ class Deck:
                 cards += str(self.list_cards[index])
         return "Deck contains " + cards
 
-#define event handlers for buttons
+# define event handlers for buttons
 def deal():
     global outcome, message, score, in_play, deck, player, dealer
     if in_play:
@@ -182,7 +182,7 @@ def draw(canvas):
 frame = simplegui.create_frame("Blackjack", 702, 600)
 frame.set_canvas_background("Green")
 
-#create buttons and canvas callback
+# create buttons and canvas callback
 frame.add_button("Deal", deal, 50)
 frame.add_button("Hit",  hit, 50)
 frame.add_button("Stand", stand, 50)
