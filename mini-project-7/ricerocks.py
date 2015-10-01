@@ -123,8 +123,8 @@ class Ship:
         # Thrust update
         if self.thrust:
             forward = angle_to_vector(self.angle)
-            self.vel[0] += (forward[0] * 0.4)
-            self.vel[1] += (forward[1] * 0.4)
+            self.vel[0] += (forward[0] * 0.5)
+            self.vel[1] += (forward[1] * 0.5)
         
         # Friction update
         self.vel[0] *= (1 - 0.1)
@@ -226,12 +226,12 @@ def click(pos):
     size = splash_info.get_size()
     inwidth = (center[0] - size[0] / 2) < pos[0] < (center[0] + size[0] / 2)
     inheight = (center[1] - size[1] / 2) < pos[1] < (center[1] + size[1] / 2)
-    lives = 3
-    score = 0
-    soundtrack.rewind()
-    soundtrack.play()
     if (not started) and inwidth and inheight:
         started = True
+        lives = 3
+        score = 0
+        soundtrack.rewind()
+        soundtrack.play()
 
 def draw(canvas):
     global time, lives, score, started, velocity_incremented
